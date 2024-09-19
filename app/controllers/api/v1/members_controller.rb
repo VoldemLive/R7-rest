@@ -36,7 +36,7 @@ class Api::V1::MembersController < ApplicationController
       @member.first_name = member_params[:first_name]
       @member.last_name = member_params[:last_name]
       if @member.save
-        render json: @member, status: 201
+        render json: @member, status: 200
       else
         render json: { error:
           "Unable to update member: #{@member.errors.full_messages.to_sentence}"},

@@ -50,7 +50,7 @@ RSpec.describe 'api/v1/members', type: :request do
 
     get('show member') do
       tags 'Members'
-      response(200, 'successful') do
+      response(201, 'successful') do
         let(:id) { member_id }
 
         after do |example|
@@ -73,7 +73,7 @@ RSpec.describe 'api/v1/members', type: :request do
       }
       response(200, 'successful') do
         let(:id) { member_id }
-        let(:member) {{first_name: 'fred'}}
+        let(:member) {{first_name: 'fred', last_name: 'flintstone'}}
         after do |example|
           example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
         end
@@ -94,7 +94,7 @@ RSpec.describe 'api/v1/members', type: :request do
       }
       response(200, 'successful') do
         let(:id) { member_id }
-        let(:member) {{first_name: 'fred'}}
+        let(:member) {{first_name: 'fred', last_name: 'flintstone'}}
 
         after do |example|
           example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
