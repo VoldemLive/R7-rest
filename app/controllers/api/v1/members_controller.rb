@@ -33,19 +33,19 @@ class Api::V1::MembersController < ApplicationController
   # PUT /members/:id
   def update
     if check_access
-      prev_first_name = @member.first_name
-      prev_last_name = @member.last_name
-      if member_params[:first_name]
-        @member.first_name = member_params[:first_name]
-      else
-        @member.first_name = prev_first_name
-      end
-      if member_params[:last_name]
-        @member.last_name = member_params[:last_name]
-      else
-        @member.last_name = prev_last_name
-      end
-      if @member.save
+      # prev_first_name = @member.first_name
+      # prev_last_name = @member.last_name
+      # if member_params[:first_name]
+      #   @member.first_name = member_params[:first_name]
+      # else
+      #   @member.first_name = prev_first_name
+      # end
+      # if member_params[:last_name]
+      #   @member.last_name = member_params[:last_name]
+      # else
+      #   @member.last_name = prev_last_name
+      # end
+      if @member.update(member_params)
         render json: @member, status: 200
       else
         render json: { error:
