@@ -56,6 +56,7 @@ gem "strong_password", "~> 0.0.10"
 gem 'rspec-rails'
 gem 'rexml'
 gem 'rswag'
+gem "rack-cors"
 
 group :test do
   gem 'factory_bot_rails'
