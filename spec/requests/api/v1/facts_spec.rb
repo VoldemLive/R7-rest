@@ -75,7 +75,7 @@ RSpec.describe 'api/v1/facts', type: :request do
         }
       }
       response(200, 'successful') do
-        let(:fact) { {fact_text: "This is another fact.", likes: 10}}
+        let(:fact) { {fact_text: "This is another fact."}}
 
         after do |example|
           example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
@@ -96,7 +96,7 @@ RSpec.describe 'api/v1/facts', type: :request do
         }
       }
       response(200, 'successful') do
-        let(:fact) {{ fact_text: "This is another fact.", likes: 10 }}
+        let(:fact) {{ fact_text: "This is another fact."}}
 
         after do |example|
           example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
