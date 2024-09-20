@@ -32,8 +32,18 @@ class Api::V1::FactsController < ApplicationController
 
   # PUT /members/:member_id/facts/:id
   def update
-    @fact.fact_text = params[:fact_text]
-    @fact.likes = params[:likes]
+    prev_fact_text = @fact.fact_text
+    prev_likes = @fact.likes
+    if fact_params[:fact_text]
+      @fact.fact_text = fact_params[:fact_text]
+    else
+      @fact.fact_text = prev_fact_text
+    end
+    if fact_params[:likes]
+      @fact.likes = fact_params[:likes]
+    else
+      @fact.likes = prev_likes
+    end
     if @fact.save
       render json: {message: "Fact record id:#{params[:id]} updated"}, status: 200
     else
