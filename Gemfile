@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.4", ">= 7.0.4.2"
+gem "rails", "~> 7.0.8" # Keep this version
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
@@ -34,11 +34,16 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
+gem "rack-cors"
+gem "rack", "~> 2.2.9"
+gem "rack-session", "~> 1.0.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -46,19 +51,9 @@ group :development do
   # gem "spring"
 end
 
-
 gem "devise", "~> 4.9"
-
 gem "email_validator", "~> 2.2"
-
 gem "strong_password", "~> 0.0.10"
-
 gem 'rspec-rails'
 gem 'rexml'
 gem 'rswag'
-
-group :test do
-  gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'rails-controller-testing'
-end
